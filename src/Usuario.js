@@ -13,7 +13,7 @@ export default function Usuario(){
 
 	return(
 		<div class="usuario" data-test="user">
-		<img src={profPic} data-test="profile-img" onClick={changePfp}/>
+		<img src={profPic} data-test="profile-image" onClick={changePfp}/>
 		<div class="texto">
 			<strong>{usuario.user}</strong>
 			<span>

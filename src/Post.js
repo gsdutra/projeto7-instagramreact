@@ -23,7 +23,7 @@ export default function Post(props){
 			</div>
 
 			<div class="conteudo">
-				<img src={props.imgSrc} alt="" onDoubleClick={doubleLike} data-test="post-image"/>
+				<img src={props.imgSrc} alt="" onDoubleClick={doubleLike} onClick={doubleLike} data-test="post-image"/>
 				<ion-icon name="heart" class={bigHeart}></ion-icon>
 			</div>
 
