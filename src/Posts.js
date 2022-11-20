@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 const postsObj = [
   {userImg: "./assets/img/meowed.svg",
   userName: "meowed",
@@ -26,6 +28,10 @@ export default function Posts(){
 }
 
 function RenderPosts(){
+
+	const [likePost, setLike] = React.useState("heart-outline");
+	const [savePost, setSave] = React.useState("save-outline");
+
 	return(
 		postsObj.map((u)=>
 		<div class="post">
@@ -46,7 +52,7 @@ function RenderPosts(){
 			<div class="fundo">
 				<div class="acoes">
 				<div>
-					<ion-icon name="heart-outline"></ion-icon>
+					<ion-icon name={likePost} onClick={like}></ion-icon>
 					<ion-icon name="chatbubble-outline"></ion-icon>
 					<ion-icon name="paper-plane-outline"></ion-icon>
 				</div>
@@ -65,4 +71,7 @@ function RenderPosts(){
 			</div>
 		)
 	)
+	function like(){
+		setLike('heart');
+	}
 }
