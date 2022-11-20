@@ -28,27 +28,28 @@ const storiesObj = [
 export default function Stories(){
 		return(
 				<div class="stories">        
-				
-									<RenderStories/>
+				{storiesObj.map((index) =>
+				<RenderStories
+					imgSrc = {index.imgSrc}
+					name = {index.name}
+				/>)}
 
-									<div class="setinha">
-										<ion-icon name="chevron-forward-circle"></ion-icon>
-									</div>
-								</div>
+					<div class="setinha">
+						<ion-icon name="chevron-forward-circle"></ion-icon>
+					</div>
+				</div>
 		)
 }
 
-function RenderStories(){
+function RenderStories(props){
 	return(
-		storiesObj.map((u) =>
-			<div class="story">
-			<div class="imagem">
-				<img src={u.imgSrc} />
-			</div>
-			<div class="usuario">
-				{u.name}
-			</div>
+		<div class="story">
+		<div class="imagem">
+			<img src={props.imgSrc} />
 		</div>
-		)
+		<div class="usuario">
+			{props.name}
+		</div>
+	</div>
 	)
 }

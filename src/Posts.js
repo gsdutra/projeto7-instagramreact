@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import Post from "./Post.js";
 
 const postsObj = [
   {userImg: "./assets/img/meowed.svg",
@@ -6,72 +7,33 @@ const postsObj = [
   imgSrc:"./assets/img/gato-telefone.svg",
   lastLikedName:"respondeai",
   lastLikedImg:"./assets/img/respondeai.svg",
-  likes: 101.523
+  likes: 101523
   },
   {userImg: "./assets/img/barked.svg",
   userName: "barked",
   imgSrc:"./assets/img/dog.svg",
   lastLikedName:"adorable_animals",
   lastLikedImg:"./assets/img/adorable_animals.svg",
-  likes: 99.159
+  likes: 99159
   }
 ];
 
 export default function Posts(){
     return(
         <div class="posts">
-        
-              <RenderPosts/>    
+			
+			{postsObj.map((index)=>
+				<Post
+				userImg ={index.userImg}
+				userName ={index.userName}
+				imgSrc = {index.imgSrc}
+				lastLikedName = {index.lastLikedName}
+				lastLikedImg = {index.lastLikedImg}
+				likes = {index.likes}
+			
+				/>)
+			}
               
         </div>
     )
-}
-
-function RenderPosts(){
-
-	const [likePost, setLike] = React.useState("heart-outline");
-	const [savePost, setSave] = React.useState("save-outline");
-
-	return(
-		postsObj.map((u)=>
-		<div class="post">
-			<div class="topo">
-				<div class="usuario">
-				<img src={u.userImg} />
-				{u.userName}
-				</div>
-				<div class="acoes">
-				<ion-icon name="ellipsis-horizontal"></ion-icon>
-				</div>
-			</div>
-
-			<div class="conteudo">
-				<img src={u.imgSrc} />
-			</div>
-
-			<div class="fundo">
-				<div class="acoes">
-				<div>
-					<ion-icon name={likePost} onClick={like}></ion-icon>
-					<ion-icon name="chatbubble-outline"></ion-icon>
-					<ion-icon name="paper-plane-outline"></ion-icon>
-				</div>
-				<div>
-					<ion-icon name="bookmark-outline"></ion-icon>
-				</div>
-				</div>
-
-				<div class="curtidas">
-				<img src={u.lastLikedImg} />
-				<div class="texto">
-					Curtido por <strong>{u.lastLikedName}</strong> e <strong>outras {u.likes} pessoas</strong>
-				</div>
-				</div>
-			</div>
-			</div>
-		)
-	)
-	function like(){
-		setLike('heart');
-	}
 }
