@@ -11,13 +11,13 @@ export default function Usuario(){
 	const [nome, setNome] = React.useState(usuario.name);
 
 	return(
-		<div class="usuario">
-		<img src={usuario.img} />
+		<div class="usuario" data-test="user">
+		<img src={usuario.img} data-test="profile-img"/>
 		<div class="texto">
 			<strong>{usuario.user}</strong>
 			<span>
-				{nome}
-				<ion-icon name="pencil" onClick={changeName}></ion-icon>
+				<div data-test="name">{nome}</div>
+				<ion-icon name="pencil" data-test="edit-name" onClick={changeName}></ion-icon>
 			</span>
 		</div>
 	</div>

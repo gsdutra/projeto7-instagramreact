@@ -11,7 +11,7 @@ export default function Post(props){
 	const formattedLikes = likeNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 	return(
-		<div class="post">
+		<div class="post" data-test="post">
 			<div class="topo">
 				<div class="usuario">
 				<img src={props.userImg} alt=""/>
@@ -23,26 +23,26 @@ export default function Post(props){
 			</div>
 
 			<div class="conteudo">
-				<img src={props.imgSrc} alt="" onDoubleClick={doubleLike}/>
+				<img src={props.imgSrc} alt="" onDoubleClick={doubleLike} data-test="post-image"/>
 				<ion-icon name="heart" class={bigHeart}></ion-icon>
 			</div>
 
 			<div class="fundo">
 				<div class="acoes">
 				<div>
-					<ion-icon name={likePost} style={{color: likeColor}} onClick={like}></ion-icon>
+					<ion-icon name={likePost} style={{color: likeColor}} onClick={like} data-test="like-post"></ion-icon>
 					<ion-icon name="chatbubble-outline"></ion-icon>
 					<ion-icon name="paper-plane-outline"></ion-icon>
 				</div>
 				<div>
-					<ion-icon name={savePost} onClick={save}></ion-icon>
+					<ion-icon name={savePost} onClick={save} data-test="save-post"></ion-icon>
 				</div>
 				</div>
 
 				<div class="curtidas">
 				<img src={props.lastLikedImg} alt=""/>
 				<div class="texto">
-					Curtido por <strong>{props.lastLikedName}</strong> e <strong>outras {formattedLikes} pessoas</strong>
+					Curtido por <strong>{props.lastLikedName}</strong> e <strong>outras <span data-test="likes-number">{formattedLikes}</span> pessoas</strong>
 				</div>
 				</div>
 			</div>
