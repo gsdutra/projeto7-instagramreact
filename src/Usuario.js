@@ -16,7 +16,7 @@ export default function Usuario(){
 		<div class="texto">
 			<strong>{usuario.user}</strong>
 			<span>
-				<div data-test="name">{nome}</div>
+				<span data-test="name">{nome}</span>
 				<ion-icon name="pencil" data-test="edit-name" onClick={changeName}></ion-icon>
 			</span>
 		</div>
